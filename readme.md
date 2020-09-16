@@ -113,8 +113,8 @@ angular
 To see these examples work realtime feel free to checkout the demo:
 
 ```shell script
-git clone ...
-cd ./...
+git clone https://github.com/domi7777/ng-hybrid-decorators.git
+cd ng-hybrid-decorators
 npm i
 npm run update-demo
 npm run demo
