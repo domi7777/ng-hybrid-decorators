@@ -1,0 +1,21 @@
+body {
+  padding: 10px;
+}
+
+header {
+  border-bottom: 1px solid white;
+  padding: 5px;
+}
+
+section {
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: black;
+}
+
+section > p {
+  padding: 20px 20px 10px 20px;
+  color: #ff7f50;
+}
+
