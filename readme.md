@@ -9,7 +9,7 @@ A few decorators to ease maintenance/evolution of **angularjs/Angular** hybrid a
 - `@ng1Component()`: Makes an Angular component usable in angularjs templates
 
 
-See some examples below:
+See some examples below or the demo: https://domi7777.github.io/ng-hybrid-decorators/demo/dist/ng-hybrid-decorators-demo/
 
 ## @ng1Service()
 #### Angular service downgraded to angularjs:
