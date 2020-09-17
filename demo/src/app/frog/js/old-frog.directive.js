@@ -5,7 +5,6 @@
     .directive('oldFrog', oldFrog);
 
   function oldFrog() {
-    console.warn('oldFrog()');
     var directive = {
       restrict: 'E',
       template: 'A frog does "{{ OldFrogCtrl.getSound() }}"',

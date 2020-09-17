@@ -1,4 +1,4 @@
-import {downgradeComponent, downgradeInjectable} from "@angular/upgrade/static";
+import {downgradeComponent, downgradeInjectable} from '@angular/upgrade/static';
 
 export const ng2Services: { key: string, value: Ng2Class }[] = [];
 const ng2Components: { key: string, value: Ng2Class }[] = [];
@@ -9,56 +9,81 @@ type Ng2Class = any;
 type AngularJsService = any;
 type AngularJsInjector = any;
 
-export class NgHybridService {
+interface Options {
+  debug?: boolean;
+  // workaround for ivy, see https://github.com/angular/angular/issues/37102
+  // not needed when enableIvy: false
+  downgradedComponentsForIvy?: Ng2Class[];
+}
 
-  loadNg1Dependencies(module: Ng1Module): void {
-    NgHybridService.downgradeNg2Components(module);
-    NgHybridService.downgradeNg2Services(module);
-    NgHybridService.injectNg1ServicesInNg2Classes(module);
+export class NgHybridService {
+  private options: Options;
+
+  /**
+   * @param module angularjs module
+   * @param options debug & ivy compatibility (see https://github.com/angular/angular/issues/37102) options
+   */
+  loadNg1Dependencies(module: Ng1Module, options: Options = {debug: false, downgradedComponentsForIvy: []}): void {
+    this.options = {...options, downgradedComponentsForIvy: options.downgradedComponentsForIvy || []};
+    this.downgradeNg2Components(module);
+    this.downgradeNg2Services(module);
+    this.injectNg1ServicesInNg2Classes(module);
   }
 
-  private static injectNg1ServicesInNg2Classes(module: Ng1Module): void {
-    module.run(['$injector', function ($injector: AngularJsInjector): void {
-      NgHybridService.injectNg1DependenciesInNg2Classes($injector);
+  private injectNg1ServicesInNg2Classes(module: Ng1Module): void {
+    module.run(['$injector', ($injector: AngularJsInjector) => {
+      this.injectNg1DependenciesInNg2Classes($injector);
     }]);
   }
 
-  private static downgradeNg2Services(module: Ng1Module): void {
+  private downgradeNg2Services(module: Ng1Module): void {
     ng2Services.forEach(ng2Service => {
-      console.log('downgrading', ng2Service);
+      if (this.options.debug) {
+        console.log('downgrading', ng2Service);
+      }
       module.factory(ng2Service.key, downgradeInjectable(ng2Service.value));
     });
   }
 
-  private static downgradeNg2Components(module: Ng1Module): void {
+  private downgradeNg2Components(module: Ng1Module): void {
     ng2Components.forEach(ng2Component => {
-      console.log('downgrading', ng2Component);
+      if (this.options.debug) {
+        console.log('downgrading', ng2Component);
+        if (!this.options.downgradedComponentsForIvy.includes(ng2Component.value)) {
+          console.warn(
+              `Class decorated with @ng1Component('${ng2Component.key}') is not in downgradedComponentsForIvy!` +
+              `\nIf 'enableIvy' is true this component will not be included in production build!`
+          );
+        }
+      }
       module.directive(ng2Component.key, downgradeComponent({component: ng2Component.value}));
     });
   }
 
-  private static injectNg1DependenciesInNg2Classes($injector: AngularJsInjector): void {
+  private injectNg1DependenciesInNg2Classes($injector: AngularJsInjector): void {
     ng2ClassesToNg1DependenciesToInject.forEach((ng1DependenciesNames: string[], ng2Class: Ng2Class) => {
       ng1DependenciesNames.forEach(ng1DependencyName => {
-        const realNg1DependencyName = capitalizeFirstLetter(ng1DependencyName); // unlike in ng2, all services have first capital letter in ng1
+        // unlike in ng2, all services have first capital letter in ng1
+        const realNg1DependencyName = capitalizeFirstLetter(ng1DependencyName);
         try {
           ng2Class[ng1DependencyName] = $injector.get(realNg1DependencyName);
         } catch (e) {
           console.error(
-            `could not inject/instantiate ng1 service [${realNg1DependencyName}] into ng2 class [${ng2Class.constructor.name}]`,
-            ng2Class,
-            '\nRoot cause:',
-            e
+              `could not inject/instantiate ng1 service [${realNg1DependencyName}] into ng2 class [${ng2Class.constructor.name}]`,
+              ng2Class,
+              '\nRoot cause:',
+              e
           );
           throw e;
         }
       });
     });
   }
+
 }
 
-function capitalizeFirstLetter(string: string): string {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+function capitalizeFirstLetter(someString: string): string {
+  return someString.charAt(0).toUpperCase() + someString.slice(1);
 }
 
 
@@ -79,7 +104,6 @@ export function ng1Service(name: string): ClassDecorator {
  */
 export function ng1Component(directiveName: string): ClassDecorator {
   return (target: Ng2Class): Ng2Class => {
-    console.log(target);
     ng2Components.push({key: directiveName, value: target});
     return target;
   };

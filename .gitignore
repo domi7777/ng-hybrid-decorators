@@ -1,5 +1,5 @@
 .idea
 dist
 node_modules
-demo/dist
 demo/node_modules
+!demo/dist

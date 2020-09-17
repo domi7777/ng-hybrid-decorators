@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
-import {GiraffeComponent} from "./js/giraffe.component";
-import {NewGiraffeComponent} from "./new-giraffe.component";
+import {GiraffeComponent} from './js/giraffe.component';
+import {NewGiraffeComponent} from './new-giraffe.component';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,10 @@ import {NewGiraffeComponent} from "./new-giraffe.component";
   exports: [
     GiraffeComponent
   ],
-  providers: []
+  providers: [],
+  entryComponents: [
+    NewGiraffeComponent
+  ]
 })
 export class GiraffeModule {
 

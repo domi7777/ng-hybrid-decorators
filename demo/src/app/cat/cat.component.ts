@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ng1Inject} from "ng-hybrid-decorators";
+import {ng1Inject} from 'ng-hybrid-decorators';
 
 @Component({
   selector: 'cat',

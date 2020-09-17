@@ -6,7 +6,6 @@
     .controller('GiraffeController', GiraffeController);
 
   function GiraffeController() {
-    console.warn('GiraffeController');
 
     var vm = this;
 

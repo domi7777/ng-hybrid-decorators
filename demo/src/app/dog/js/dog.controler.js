@@ -6,7 +6,6 @@
     .controller('DogController', DogController);
 
   function DogController(DogService) {
-    console.warn('DogController');
 
     var vm = this;
     vm.getSound = getSound;

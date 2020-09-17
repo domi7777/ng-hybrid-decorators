@@ -6,7 +6,6 @@
     .controller('OldFrogController', FrogController);
 
   function FrogController($scope) {
-    console.warn('OldFrogController');
 
     var vm = this;
 

@@ -5,7 +5,6 @@
     .directive('dog', GoodDog);
 
   function GoodDog() {
-    console.warn('Dog()');
     var directive = {
       restrict: 'E',
       template: 'A dog does "{{ DogCtrl.getSound() }}"', //require('./dog.template.html'), TODO?

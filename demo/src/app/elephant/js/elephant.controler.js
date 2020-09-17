@@ -6,7 +6,6 @@
     .controller('ElephantController', ElephantController);
 
   function ElephantController(ElephantService) {
-    console.warn('ElephantController');
 
     var vm = this;
     vm.getSound = getSound;

@@ -9,7 +9,6 @@ angular
     return service;
 
     function getSound() {
-      console.warn('OldElephantService.getSound is called');
       return 'Pwoa pwoa pwoaaa';
     }
 

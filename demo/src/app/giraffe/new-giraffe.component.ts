@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ng1Component} from "ng-hybrid-decorators";
+import {ng1Component} from 'ng-hybrid-decorators';
 
 @ng1Component('newGiraffe')
 @Component({

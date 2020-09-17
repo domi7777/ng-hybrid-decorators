@@ -11,7 +11,6 @@ function CatService(NewCatService) {
   return service;
 
   function getSound() {
-    console.warn('CatService.getSound is called');
     return NewCatService.getNewSound();
   }
 
