@@ -1,15 +1,17 @@
 {
   "name": "ng-hybrid-decorators",
-  "version": "0.0.1",
+  "version": "0.0.1-1",
   "description": "A few decorators to ease maintenance/evolution of angularjs/Angular hybrid applications",
   "main": "index.js",
   "scripts": {
     "compile": "tsc && cd demo && npm run compile",
+    "test": "npm run compile",
     "pack": "cp package.json dist && cd dist && npm pack",
     "compile-and-pack": "npm run compile && npm run pack",
     "update-demo": "npm run compile-and-pack && cd demo && npm i ng-hybrid-decorators",
     "run-demo": "cd demo && npm start",
     "run-demo:prod": "cd demo && npm start:prod",
+    "publish": "cp package.json dist && cd dist && npm publish",
     "tslint:fix": "echo 'will try to fix tslint issues' && tslint --project tsconfig.json --fix && cd demo && npm run tslint:fix",
     "tslint:nofix": "tslint --project tsconfig.json && cd demo && npm run tslint:nofix",
     "ci": "npm run compile && npm run tslint:nofix"
