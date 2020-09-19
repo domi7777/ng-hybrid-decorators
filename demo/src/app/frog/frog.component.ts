@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'frog',
+  selector: 'demo-frog',
   templateUrl: './frog.component.html',
 })
 export class FrogComponent {

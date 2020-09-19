@@ -9,8 +9,8 @@ import {DogModule} from './dog/dog.module';
 import {ElephantModule} from './elephant/elephant.module';
 import {FrogModule} from './frog/frog.module';
 import {GiraffeModule} from './giraffe/giraffe.module';
-import {NgHybridService} from "ng-hybrid-decorators";
-import {NewGiraffeComponent} from "./giraffe/new-giraffe.component";
+import {NgHybridService} from 'ng-hybrid-decorators';
+import {NewGiraffeComponent} from './giraffe/new-giraffe.component';
 
 /**
  * webpack require to load angularjs files

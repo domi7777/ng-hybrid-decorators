@@ -1,6 +1,9 @@
 # ng-hybrid-decorators
 
-A few decorators to ease maintenance/evolution of **angularjs/Angular** hybrid applications:
+![GitHub package.json version](https://img.shields.io/github/package-json/v/domi7777/ng-hybrid-decorators)
+
+Some **Typescript decorators** to ease maintenance/evolution of **angularjs/Angular(2+)** hybrid applications
+by removing a lot of boilerplate code:
 
 - `@ng1Service()`: Makes an Angular service injectable in angularjs services/components
 
@@ -8,13 +11,14 @@ A few decorators to ease maintenance/evolution of **angularjs/Angular** hybrid a
 
 - `@ng1Component()`: Makes an Angular component usable in angularjs templates
 
+This micro library (5kb) is based on [official recommendation](https://angular.io/guide/upgrade).
 
-See some examples below or the demo: https://domi7777.github.io/ng-hybrid-decorators/demo/dist/ng-hybrid-decorators-demo/
+See some examples below or the [online demo](https://domi7777.github.io/ng-hybrid-decorators/demo/dist/ng-hybrid-decorators-demo/)
 
 ## @ng1Service()
 #### Angular service downgraded to angularjs:
 ```typescript
-@Injectable() // does NOT work with provideIn: 'root', it needs to be put in providers of a module
+@Injectable()
 @ng1Service('NewCatService')
 export class NewCatService {
 
@@ -44,6 +48,7 @@ function CatService(NewCatService) {
   }
 
 }
+
 ```
 
 ## @ng1Inject()
@@ -93,7 +98,7 @@ export class NewGiraffeComponent {
 }
 ```
 
-#### It can be used in angularjs template:
+#### Angular component can then be used in angularjs template:
 ```javascript
 angular
     .module('demo.app')
@@ -110,18 +115,15 @@ angular
   }
 ```
 
-To see these examples work realtime feel free to checkout the demo:
+See also the [online demo](https://domi7777.github.io/ng-hybrid-decorators/demo/dist/ng-hybrid-decorators-demo/)
 
+## Installation
 ```shell script
-git clone https://github.com/domi7777/ng-hybrid-decorators.git
-cd ng-hybrid-decorators
-npm i
-npm run update-demo
-npm run demo
+npm i ng-hybrid-decorators
 ```
 
-# Setup
-To be able to use the decorators, a small setup is needed where the hybrid app is configured:
+## Setup
+`NgHybridService` needs to be called where the hybrid app is configured:
 ```typescript
 export class AppModule {
 
@@ -138,4 +140,16 @@ export class AppModule {
   }
 
 }
+```
+
+See [demo source code](./demo/src/app/app.module.ts)
+
+## Run demo locally
+
+```shell script
+git clone https://github.com/domi7777/ng-hybrid-decorators.git
+cd ng-hybrid-decorators
+npm i
+npm run update-demo
+npm run demo
 ```

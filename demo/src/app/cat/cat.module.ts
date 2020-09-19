@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
-import {CatComponent} from "./cat.component";
-import {NewCatService} from "./new-cat.service";
+import {CatComponent} from './cat.component';
+import {NewCatService} from './new-cat.service';
 
 @NgModule({
   declarations: [

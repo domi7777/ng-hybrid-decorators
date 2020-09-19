@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {BirdComponent} from "./bird.component";
+import {BirdComponent} from './bird.component';
 
 @NgModule({
   declarations: [

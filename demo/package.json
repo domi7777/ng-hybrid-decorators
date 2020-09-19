@@ -2,13 +2,16 @@
   "name": "ng-hybrid-decorators-demo",
   "version": "0.0.0",
   "scripts": {
+    "compile": "tsc",
     "ng": "ng",
     "start": "ng serve",
     "start:prod": "ng serve --prod",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "tslint:fix": "echo 'will try to fix tslint issues' && tslint --project tsconfig.json --fix",
+    "tslint:nofix": "tslint --project tsconfig.json"
   },
   "private": false,
   "dependencies": {

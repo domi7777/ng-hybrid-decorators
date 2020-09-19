@@ -39,7 +39,7 @@ export class NgHybridService {
   private downgradeNg2Services(module: Ng1Module): void {
     ng2Services.forEach(ng2Service => {
       if (this.options.debug) {
-        console.log('downgrading', ng2Service);
+        console.log('downgrading', ng2Service.key, ng2Service.value);
       }
       module.factory(ng2Service.key, downgradeInjectable(ng2Service.value));
     });
@@ -48,7 +48,7 @@ export class NgHybridService {
   private downgradeNg2Components(module: Ng1Module): void {
     ng2Components.forEach(ng2Component => {
       if (this.options.debug) {
-        console.log('downgrading', ng2Component);
+        console.log('downgrading', ng2Component.key, ng2Component.value);
         if (!this.options.downgradedComponentsForIvy.includes(ng2Component.value)) {
           console.warn(
               `Class decorated with @ng1Component('${ng2Component.key}') is not in downgradedComponentsForIvy!` +

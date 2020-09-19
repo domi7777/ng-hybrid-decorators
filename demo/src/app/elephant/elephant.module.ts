@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
-import {ElephantService} from "./elephant.service";
-import {ElephantComponent} from "./js/elephant.component";
+import {ElephantService} from './elephant.service';
+import {ElephantComponent} from './js/elephant.component';
 
 
 @NgModule({

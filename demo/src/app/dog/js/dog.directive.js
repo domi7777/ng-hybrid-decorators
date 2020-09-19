@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('demo.app')
-    .directive('dog', GoodDog);
+    .directive('demoDog', GoodDog);
 
   function GoodDog() {
     var directive = {

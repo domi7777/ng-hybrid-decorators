@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {ng1Component} from 'ng-hybrid-decorators';
 
-@ng1Component('appRoot')
+@ng1Component('demoRoot')
 @Component({
-  // selector: 'app-root', // not used since we are using downgraded version
+  // selector: 'demo-root', // not used since we are using downgraded version
   templateUrl: './app.component.html',
 })
 export class AppComponent {

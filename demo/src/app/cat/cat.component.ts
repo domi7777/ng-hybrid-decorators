@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {ng1Inject} from 'ng-hybrid-decorators';
 
 @Component({
-  selector: 'cat',
+  selector: 'demo-cat',
   templateUrl: './cat.component.html',
 })
 export class CatComponent {
