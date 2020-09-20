@@ -14,7 +14,7 @@
     "run-demo:prod": "cd demo && npm start:prod",
     "publish": "cp package.json dist && cd dist && npm publish",
     "tslint:fix": "echo 'will try to fix tslint issues' && tslint --project tsconfig.json --fix && cd demo && npm run tslint:fix",
-    "tslint:nofix": "tslint --project tsconfig.json && cd demo && npm run tslint:nofix",
+    "tslint:nofix": "tslint --project tsconfig.json && cd demo && npm run tslint:nofix"
   },
   "keywords": [
     "angularjs",
