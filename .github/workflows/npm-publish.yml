@@ -21,8 +21,6 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm run update-demo
-      - run: npm test
 
   publish-npm:
     needs: build
