@@ -25,6 +25,10 @@
   ],
   "author": "domi7777",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domi7777/ng-hybrid-decorators.git"
+  },
   "devDependencies": {
     "@angular/animations": "~9.1.12",
     "@angular/common": "~9.1.12",
