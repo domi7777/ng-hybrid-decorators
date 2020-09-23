@@ -2,3 +2,5 @@ demo
 node_modules
 .idea
 **/*.tgz
+.github
+dist
