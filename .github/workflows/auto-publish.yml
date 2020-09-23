@@ -28,9 +28,9 @@ jobs:
         with:
           registry-url: "https://registry.npmjs.org"
 
-      - name: Install dependencies, compile and prepare package
+      - name: Install dependencies, compile and prepare publish
         if: steps.check.outputs.changed == 'true'
-        run: npm ci && npm run compile && npm run prepare-package
+        run: npm ci && npm run compile && npm run prepare-publish
 
       - name: Publish package to NPM
         if: steps.check.outputs.changed == 'true'
