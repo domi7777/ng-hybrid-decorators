@@ -9,17 +9,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
     - name: Set up Node.js
-      uses: actions/setup-node@master
+      uses: actions/setup-node@v1
       with:
         node-version: 12
+        registry-url: "https://registry.npmjs.org"
     - run: npm ci
     - run: npm run compile
     - run: npm run prepare-publish
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@06e0830ea83eea10ed4a62654eeaedafb8bf50fc
       with: # All of theses inputs are optional
+        registry-url: "https://registry.npmjs.org"
         tag_name: "v%s"
         tag_message: "v%s"
         commit_pattern: "^release (\\S+)"
