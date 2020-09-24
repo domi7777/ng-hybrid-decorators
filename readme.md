@@ -1,5 +1,4 @@
 # ng-hybrid-decorators
-https://img.shields.io/npm/v/ng-hybrid-decorators
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/domi7777/ng-hybrid-decorators/CI)
 ![npm](https://img.shields.io/npm/v/ng-hybrid-decorators)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/ng-hybrid-decorators)
