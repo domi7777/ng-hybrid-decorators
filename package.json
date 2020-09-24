@@ -1,6 +1,6 @@
 {
   "name": "ng-hybrid-decorators",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A few decorators to ease maintenance/evolution of angularjs/Angular hybrid applications",
   "main": "index.js",
   "scripts": {
