@@ -25,6 +25,7 @@
     "@angular/router": "~9.1.12",
     "@angular/upgrade": "~9.1.12",
     "angular": "^1.8.0",
+    "ng-hybrid-decorators": "^1.0.5",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -44,7 +45,6 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
-    "ng-hybrid-decorators": "file:../dist/ng-hybrid-decorators-0.0.1-1.tgz",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
